@@ -13,7 +13,7 @@ function solution(strings, n) {
             if (strings[j][n] === temp[i]) {
                 answer.push(strings[j]);
                 strings[j][n] = '';
-            }
+            } ``
         }
     }
     return answer;
