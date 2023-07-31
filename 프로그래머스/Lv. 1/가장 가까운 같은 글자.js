@@ -22,9 +22,7 @@ function solution(s) {
     return answer;
 }
 
-
 // 문자 확인에는 Hash가 뛰어나다
-
 
 function solution(s) {
     const hash = {};
