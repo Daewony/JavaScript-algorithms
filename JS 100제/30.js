@@ -7,11 +7,9 @@ const rl = readline.createInterface({
 
 rl.question('문자열 입력: ',a=>{
     rl.question('찾을 문자 입력: ', b=>{
-        if(a.includes(b)){
-            
-        }
-
-
+        console.log(a.indexOf(b));
         rl.close();
     });
 });
+
+// console.log('pineapple is yummy'.indexOf('apple'));
