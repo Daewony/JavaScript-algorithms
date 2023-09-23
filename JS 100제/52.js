@@ -22,11 +22,13 @@ function quickSort(arr){
     input:process.stdin,
     output:process.stdout
   });
-  rl.question('배열을 입력하세요', n.split(' ').map(n=>parseInt(n,10))=>{
-    rl.close();
+  rl.question('배열을 입력하세요: ', input=>{
+        const array = input.split(' ').map(n=>parseInt(n,10));
+        console.log(quickSort(array));
+        rl.close();
   } );
 
   
 //   const array = prompt('배열을 입력하세요').split(' ').map(n => parseInt(n, 10));
   
-  console.log(quickSort(array));
+//   console.log(quickSort(array));
