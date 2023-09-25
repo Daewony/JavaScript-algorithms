@@ -7,34 +7,32 @@ const t2 = "()())";
 // 다른 경우 [, { 도 마찬가지로 처리하기
 let arr =[];
 let flag = true;
-for(const i of t1){
+for(const i of t2){
     console.log(i);
     if(i==='{' || i==='[' || i==='(') arr.push(i);
-    console.log(arr);
-    // if(i==='}'){
-    //     if(arr.pop()!=='{') {
-    //         flag = false;
-    //         break;
-    //     }
-    // } else if (i===']'){
-    //     if(arr.pop()!=='[') {
-    //         flag = false;
-    //         break;
-    //     }
-    // } else if (i===')'){
-    //     if(arr.pop()!=='(') {
-    //         flag = false;
-    //         break;
-    //     }
-    // } else {
-    //     flag = false;
-    //     break;
-    // }
-    // console.log(arr);
+    console.log(arr, arr.length);
+    if(i==='}'){
+        if(arr[arr.length-1]!=='{') {
+            flag = false;
+            break;
+        } else arr.pop();
+    } else if (i===']'){
+        if(arr[arr.length-1]!=='[') {
+            flag = false;
+            break;
+        } else arr.pop(); 
+    } 
+    if (i===')'){
+        if(arr[arr.length-1]!=='(') {
+            flag = false;
+            break;
+        } else arr.pop();
+    }
 }
+console.log(arr);
 
-console.log("t1");
-if(flag){
+console.log(`${t2}`);
+if(flag && arr.length===0){
     console.log("YES");
 } else {
     console.log("NO");
