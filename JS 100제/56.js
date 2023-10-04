@@ -1,1 +1,1 @@
-const 
+const n = 10;
