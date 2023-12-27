@@ -4,7 +4,6 @@ const num = prompt("3개의 과목 성적 입력");
 //     console.log(acc, cur);
 //     let num_length = num.split(' ').length
 //     // console.log(+acc + +cur);
-
 //     return (+acc + +cur) / num_length;
 // }));
 let sum = 0;
