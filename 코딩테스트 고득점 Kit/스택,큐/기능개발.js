@@ -53,4 +53,3 @@ function solution(progresses, speeds) {
 
   return answer; // 최종적으로 각 배포일에 배포되는 작업 수를 담은 배열 반환
 }
-
