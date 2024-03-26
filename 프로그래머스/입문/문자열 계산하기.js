@@ -34,3 +34,29 @@ function solution(my_string) {
 
   return arr[0];
 }
+
+function solution(my_string) {
+  let arr = my_string
+    .split(" ")
+    .map((str) => (isNaN(Number(str)) ? str : Number(str)));
+  let stack = [];
+
+  arr.forEach((element) => {
+    if (!isNaN(element)) {
+      stack.push(element);
+    } else {
+      const a = stack.pop();
+      const b = stack.pop();
+      switch (element) {
+        case "+":
+          stack.push(b + a);
+          break;
+        case "-":
+          stack.push(b - a);
+          break;
+      }
+    }
+  });
+
+  return stack.pop();
+}
