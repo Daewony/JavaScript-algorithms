@@ -20,3 +20,30 @@ function solution(quiz) {
 
   return answer;
 }
+
+const arr = [1, 2, 3, 4, 5, 6, 7];
+
+const newArr = arr.reduce((acc, cur) => {
+  console.log(acc, cur);
+  return acc + cur;
+})
+
+console.log(newArr);
+
+const orders = [
+  {
+    userId: 1,
+    amount: 10
+  },
+  {
+    userId: 1,
+    amount: 15
+  },
+  {
+    userId: 2,
+    amount: 225
+  },
+]
+
+const filterOrder = orders.filter(order => order.userId === 1).map(order => order.amount);
+console.log(filterOrder)
