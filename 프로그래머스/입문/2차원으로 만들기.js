@@ -2,7 +2,6 @@
 // slice로 할 수 있지 않을까?
 
 function solution(num_list, n) {
-  // var answer = [[]];
   var answer = [];
 
   let row = Math.round(num_list.length / n);
