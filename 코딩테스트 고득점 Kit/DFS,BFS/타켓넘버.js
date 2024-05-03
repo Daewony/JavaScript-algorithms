@@ -1,10 +1,3 @@
-function solution(numbers, target) {
-  var answer = 0;
-
-  return answer;
-}
-
-
 // 모든 경우의 합을 다 해본 후에 3인 것만 처리한다
 // 타켓 넘버를 활용해서 number를 처리하는 방법
 
@@ -61,4 +54,4 @@ const DFS = (graph, startNode) => {
 
 // DFS 실행
 const result = DFS(graph, "A");
-console.log(result); 
+console.log(result);
