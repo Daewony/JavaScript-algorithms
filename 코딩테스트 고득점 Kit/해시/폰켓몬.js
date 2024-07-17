@@ -12,3 +12,14 @@ function solution(nums) {
   answer = arr.length > nums.length / 2 ? nums.length / 2 : arr.length;
   return answer;
 }
+
+// 중복을 없애는 함수
+
+// function removeDuplicates(array) {
+//   return [...new Set(array)]
+// }
+function removeDuplicates(array) {
+  return array.filter((item, index) => array.indexOf(item) === index);
+}
+const array = [1, 2, 2, 3, 4, 4, 5];
+console.log(removeDuplicates(array));
