@@ -16,6 +16,8 @@ function solution(lst, searchList) {
   return answer;
 }
 
+// 이진탐색으로 활용하기
+
 class Node {
   constructor(key) {
     this.left = null;
@@ -78,6 +80,21 @@ function solution(list, searchList) {
     result.push(bst.search(searchVal)); // 검색 결과를 배열에 추가
   }
 
+  return result;
+}
+
+// 해시로 풀기
+
+function solution(list, searchList) {
+  const hashMap = new Map();
+  for (const key of list) {
+    hashMap.set(key, true);
+  }
+  const result = [];
+  for (const searchVal of searchList) {
+    result.push(hashMap.has(searchVal));
+    console.log(searchVal, result);
+  }
   return result;
 }
 
