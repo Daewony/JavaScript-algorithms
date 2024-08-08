@@ -138,6 +138,10 @@ function solution(dirs) {
 
 // 3번째 풀이(GPT)
 
+function isValidMove(nx, ny) {
+  return nx >= -5 && nx <= 5 && ny >= -5 && ny <= 5;
+}
+
 function solution(dirs) {
   let visited = new Set();
   let x = 0,
@@ -156,20 +160,20 @@ function solution(dirs) {
     let nx = x + dx;
     let ny = y + dy;
 
-    if (nx >= -5 && nx <= 5 && ny >= -5 && ny <= 5) {
-      let path1 = `${x},${y},${nx},${ny}`;
-      let path2 = `${nx},${ny},${x},${y}`;
-      console.log(path1, path2);
+    if (!isValidMove(nx, ny)) continue;
 
-      if (!visited.has(path1) && !visited.has(path2)) {
-        visited.add(path1);
-        visited.add(path2);
-        distance++;
-      }
+    let path1 = `${x},${y},${nx},${ny}`;
+    let path2 = `${nx},${ny},${x},${y}`;
+    console.log(path1, path2);
 
-      x = nx;
-      y = ny;
+    if (!visited.has(path1) && !visited.has(path2)) {
+      visited.add(path1);
+      visited.add(path2);
+      distance++;
     }
+
+    x = nx;
+    y = ny;
   }
 
   return distance;

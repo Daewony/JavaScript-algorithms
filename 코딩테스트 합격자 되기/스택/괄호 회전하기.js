@@ -88,7 +88,7 @@ function solution(s) {
 
 // 3번째 풀이(chatGPT)
 
-function isValuidParentheses(s) {
+function isValidParentheses(s) {
   const stack = [];
   for (let char of s) {
     if (char === "(" || char === "[" || char === "{") {
