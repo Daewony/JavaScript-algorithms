@@ -142,7 +142,7 @@ function solution(dirs) {
   let visited = new Set();
   let x = 0,
     y = 0;
-  let distance = 9;
+  let distance = 0;
 
   const moves = {
     U: [0, 1],
