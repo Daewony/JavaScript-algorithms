@@ -68,3 +68,5 @@ function solution(n, words) {
 
   return [0, 0];
 }
+
+//
