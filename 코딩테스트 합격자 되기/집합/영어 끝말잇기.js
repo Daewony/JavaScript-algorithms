@@ -69,4 +69,20 @@ function solution(n, words) {
   return [0, 0];
 }
 
-//
+// 책의 풀이
+
+function solution(n, words) {
+  let usedWords = new Set();
+  let prevWord = words[0][0];
+
+  for (let i = 0; i < words.length; i++) {
+    word = words[i];
+    if (usedWords.has(word) || word[0] != prevWord) {
+      return [(i % n) + 1, Math.floor(i / n) + 1];
+    }
+    usedWords.add(word);
+    prevWord = word.slice(-1);
+  }
+
+  return [0, 0];
+}
