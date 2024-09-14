@@ -9,3 +9,7 @@ function solution(arr, idx) {
 
   return res;
 }
+
+// 다른 사람의 풀이
+
+const solution = (a, i) => a.indexOf(1, i);
