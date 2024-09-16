@@ -17,14 +17,14 @@ rl.on('line', function (line) {
 });
 
 // 다른 사람 풀이
-const readline = require('readline');
-const rl = readline.createInterface({
+const readline2 = require('readline');
+const rl2 = readline2.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-rl.on('line', function (line) {
+rl2.on('line', function (line) {
   const [str1, str2] = line.split(' ');
   console.log(str1 + str2);
-  rl.close(); // 입력을 받으면 바로 종료
+  rl2.close(); // 입력을 받으면 바로 종료
 });
