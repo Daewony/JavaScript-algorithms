@@ -6,7 +6,7 @@ function solution(arr){
     // 정렬
     arr.sort((a,b)=>b-a);
     return arr;
-}
+}   
 
 console.log(solution([4, 2, 2, 1, 3, 4])); // 반환값 : [4, 3, 2, 1]
 
