@@ -14,7 +14,7 @@ const sign = {
   "}": "2",
 };
 
-function solution(s) {
+function solution2(s) {
   let answer = 0;
   const arr = [0, 0, 0];
 
@@ -25,6 +25,47 @@ function solution(s) {
     if (si === ")") {
       if (arr[sign[si]] > 0) arr[sign[si]]--;
     }
+  }
+
+  return answer;
+}
+
+// x칸 만큼 회원 0~s 길이만큼
+// 조건식으로 pop하기
+
+function rotate(arr) {
+  const f = arr.shift();
+  return arr.push(f);
+}
+
+function solution(s) {
+  let answer = 0;
+  // 해당 문자열 -> 배열 변환
+  let arr = s.split("");
+  const stack = [];
+
+  for (let i = 0; i < s.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      let now = arr[j];
+      console.log(stack);
+      if (now === "(" || now === "{" || now === "[") {
+        stack.push(now);
+        continue;
+      }
+
+      if (stack.length > 0) {
+        let pre = stack[stack.length - 1];
+
+        if (pre === "[" && now === "]") stack.pop();
+        else if (pre === "(" && now === ")") stack.pop();
+        else if (pre === "{" && now === "}") stack.pop();
+      }
+    }
+    if (stack.length === 0) {
+      console.log(i);
+      answer++;
+    }
+    rotate(arr);
   }
 
   return answer;
