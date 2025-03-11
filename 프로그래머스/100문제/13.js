@@ -1,1 +1,5 @@
-function solution(board, moves) {}
+function solution(board, moves) {
+  const stack = [];
+
+  return 0;
+}
