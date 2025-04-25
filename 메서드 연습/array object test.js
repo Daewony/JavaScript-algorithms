@@ -191,6 +191,91 @@ console.log(countCorrectAnswers([1, 3, 2, 1, 2, 3, 1]));
   }
   console.log(totalScore);
 
+  for (let i in students) {
+    console.log(i);
+  } // 0,1,2 => 배열의 인덱스임
+
   // const getTotalScoreForStudent = students;
   // console.log(getTotalScoreForStudent);
+
+  const res = students.reduce((acc, student) => acc + student.score, 0);
+  console.log(res);
+}
+
+{
+  const products = [
+    { name: "Laptop", category: "Electronics" },
+    { name: "Shirt", category: "Clothing" },
+    { name: "Phone", category: "Electronics" },
+    { name: "Pants", category: "Clothing" },
+    { name: "TV", category: "Electronics" },
+  ];
+
+  // { Electronics: 3, Clothing: 2 }
+
+  // 카테고리 빈 객체 만들기
+  const category = {};
+
+  // 배열 안의 객체를 순회해서 카운트 증가시키기
+  for (let product of products) {
+    category[product.category] = (category[product.category] || 0) + 1;
+  }
+
+  // 출력하기
+  console.log(category);
+
+  const categoryCount = products.reduce((acc, product) => {
+    acc[product.category] = (acc[product.category] || 0) + 1;
+    return acc;
+  }, {});
+
+  console.log(categoryCount);
+}
+
+{
+  const students = [
+    { name: "Tom", score: 80 },
+    { name: "Jane", score: 95 },
+    { name: "Bob", score: 70 },
+  ];
+
+  // 출력: "Jane"
+
+  // 배열을 순회를 한다 -> for..of, reduce 활용가능
+
+  // for..of 방식 풀이
+  let highScoreStudent1 = null;
+  let maxScore = -Infinity;
+  for (let student of students) {
+    if (maxScore < student.score) {
+      highScoreStudent1 = student.name;
+      maxScore = student.score;
+    }
+  }
+  console.log(highScoreStudent1);
+  // 위 풀이 방식 단점, 공통 최고 점수를 받은 학생의 이름을 반환 못함, 하나의 이름만 반환됨
+
+  // reduce 방식 + filter
+
+  const maxScore2 = students.reduce(
+    (acc, student) => (acc < student.score ? student.score : acc),
+    0
+  );
+
+  const highScoreStudent2 = students.filter(
+    (student) => student.score === maxScore2
+  );
+  console.log(highScoreStudent2[0].name);
+
+  const topStudent = students.reduce(
+    (acc, student) => {
+      if (student.score > acc.score) {
+        return student;
+      }
+      return acc;
+    },
+    { name: null, score: -Infinity }
+  );
+
+  console.log(topStudent.name);
 }
