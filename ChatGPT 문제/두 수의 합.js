@@ -18,3 +18,5 @@ const checkTargetFromTwoPointer = (arr, target) => {
 };
 
 console.log(checkTargetFromTwoPointer(input, target));
+
+// 위 방식의 단점 -> 2중 반복문 = O(n^2)

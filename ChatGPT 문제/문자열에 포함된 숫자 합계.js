@@ -17,3 +17,4 @@ const getTotalNumberFromString = (str) => {
   );
 };
 console.log(getTotalNumberFromString(input));
+
