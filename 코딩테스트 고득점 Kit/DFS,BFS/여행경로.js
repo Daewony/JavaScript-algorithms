@@ -103,3 +103,57 @@ function solution(tickets) {
 
   // return answer;
 }
+
+// 주어진 항공권을 모두 이용
+// - 백트레킹, 경로 하나 보고 되돌아올 준비 해야함,
+// - 방문
+
+// 가능한 경로가 여러개 -> 알파벳 순서
+// - 정렬을 미리 해놓자
+// - 출발지가 같고, 목적지가 여러개일때 담아서 그때 정렬해놓자
+
+// ICN 출발
+
+// 경로를 배열로 반환
+
+function solution2(tickets) {
+  // 경로
+  const routes = [];
+
+  // 방문 여부
+  const visited = new Array(tickets.length).fill(false);
+
+  // 미리 정렬
+  tickets.sort((a, b) => {
+    // 출발지가 같음 -> 목적지의 알파벳 순서로 정렬
+    if (a[0] === b[0]) return a[1] < b[1] ? -1 : 1; // 음수면 앞에 감, 즉 작은 값은 앞에감
+    return a[0] < b[0] ? -1 : 1;
+    // 출발지가 다르다 -> 출발지의 알파벳 순서로 정렬
+  });
+
+  // dfs(출발지, 경로)
+  // 1. 미리 정렬했을 경우
+  function dfs(current, path) {
+    // 성공 조건
+
+    if (path.length === tickets.length + 1) {
+      routes = [...path];
+      return true;
+    }
+    for (let i = 0; i < tickets.length; i++) {
+      const [from, to] = tickets[i];
+      if (current === from && !visited[i]) {
+        visited[i] = true;
+        dfs(to, [...path, to]);
+        visited[i] = false;
+      }
+    }
+
+    return false;
+  }
+
+  //
+  dfs("ICN", ["ICN"]);
+
+  return routes;
+}
