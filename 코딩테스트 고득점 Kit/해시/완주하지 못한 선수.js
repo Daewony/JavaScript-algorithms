@@ -12,19 +12,25 @@ function solution(participant, completion) {
   const map = new Map();
 
   // map에 참가자 전체를 담기 key-value, 이름-인원수
+  // for (const part of participant) {
+  //   if (!map.has(part)) {
+  //     map.set(part, 1);
+  //   } else {
+  //     map.set(part, map.get(part) + 1);
+  //   }
+  // }
   for (const part of participant) {
-    if (!map.has(part)) {
-      map.set(part, 1);
-    } else {
-      map.set(part, map.get(part) + 1);
-    }
+    map.set(part, (map.get(part) || 0) + 1);
   }
 
   // completion를 순회하면서, 맞는 key 값에 value값을 줄이기
+  // for (const comp of completion) {
+  //   if (map.has(comp)) {
+  //     map.set(comp, map.get(comp) - 1);
+  //   }
+  // }
   for (const comp of completion) {
-    if (map.has(comp)) {
-      map.set(comp, map.get(comp) - 1);
-    }
+    map.set(comp, (map.get(comp) || 0) + 1);
   }
 
   // value 값이 0이 아닌 것을 리턴하면 해결됨
