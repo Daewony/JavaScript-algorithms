@@ -15,9 +15,6 @@ function solution(nums) {
 
 // 중복을 없애는 함수
 
-// function removeDuplicates(array) {
-//   return [...new Set(array)]
-// }
 function removeDuplicates(array) {
   return array.filter((item, index) => array.indexOf(item) === index);
 }
